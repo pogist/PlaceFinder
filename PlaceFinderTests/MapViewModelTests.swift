@@ -26,13 +26,15 @@ class MapViewModelTests: XCTestCase {
     
     func testNonNilCameraPosition() {
         // Given
-        viewModelUnderTest.currentLocation = CLLocation(latitude: 0, longitude: 0)
+        viewModelUnderTest.currentLocation = CLLocation(latitude: 10, longitude: 11)
         
         // When
         let cameraPosition = viewModelUnderTest.cameraPosition
         
         // Then
         XCTAssertNotNil(cameraPosition)
+        XCTAssertEqual(cameraPosition!.target.latitude, 10)
+        XCTAssertEqual(cameraPosition!.target.longitude, 11)
     }
     
     func testNilCameraPosition() {
