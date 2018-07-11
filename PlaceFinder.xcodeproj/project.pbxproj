@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		624D4E4520F68978002C7618 /* KeyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E4420F68978002C7618 /* KeyProvider.swift */; };
+		624D4E4720F68C7B002C7618 /* DefaultKeyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E4620F68C7B002C7618 /* DefaultKeyProvider.swift */; };
 		62AB016F20F6811500FCFC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB016E20F6811500FCFC82 /* AppDelegate.swift */; };
 		62AB017120F6811500FCFC82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB017020F6811500FCFC82 /* ViewController.swift */; };
 		62AB017420F6811500FCFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017220F6811500FCFC82 /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 		0C54FBAD4F94C8BC3F16334A /* Pods_PlaceFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlaceFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6B2B4CBA2B42D2A11B092B /* Pods-PlaceFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaceFinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlaceFinder/Pods-PlaceFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		5893D002662245BF051A3EAA /* Pods-PlaceFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaceFinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlaceFinderUITests/Pods-PlaceFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		624D4E4420F68978002C7618 /* KeyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyProvider.swift; sourceTree = "<group>"; };
+		624D4E4620F68C7B002C7618 /* DefaultKeyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultKeyProvider.swift; sourceTree = "<group>"; };
 		62AB016B20F6811500FCFC82 /* PlaceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AB016E20F6811500FCFC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62AB017020F6811500FCFC82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		624D4E4320F68961002C7618 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				624D4E4420F68978002C7618 /* KeyProvider.swift */,
+				624D4E4620F68C7B002C7618 /* DefaultKeyProvider.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		62AB016220F6811500FCFC82 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +127,7 @@
 		62AB016D20F6811500FCFC82 /* PlaceFinder */ = {
 			isa = PBXGroup;
 			children = (
+				624D4E4320F68961002C7618 /* Base */,
 				62AB016E20F6811500FCFC82 /* AppDelegate.swift */,
 				62AB017020F6811500FCFC82 /* ViewController.swift */,
 				62AB017220F6811500FCFC82 /* Main.storyboard */,
@@ -377,8 +391,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624D4E4520F68978002C7618 /* KeyProvider.swift in Sources */,
 				62AB017120F6811500FCFC82 /* ViewController.swift in Sources */,
 				62AB016F20F6811500FCFC82 /* AppDelegate.swift in Sources */,
+				624D4E4720F68C7B002C7618 /* DefaultKeyProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
