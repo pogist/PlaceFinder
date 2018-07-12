@@ -13,5 +13,6 @@ extension MapViewModel: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation = locations.last
+        self.delegate?.didUpdateCameraPosition(cameraPosition)
     }
 }

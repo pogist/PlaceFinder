@@ -80,12 +80,55 @@ class MapViewModelTests: XCTestCase {
         let locations: [CLLocation] = [CLLocation(latitude: 10, longitude: 11), CLLocation(latitude: 12, longitude: 13)]
         
         // When
-        locationManager.delegate!.locationManager!(locationManager, didUpdateLocations: locations)
+        locationManager.delegate!.locationManager!(locationManager as! CLLocationManager, didUpdateLocations: locations)
         
         // Then
         XCTAssertNotNil(viewModelUnderTest.currentLocation)
         XCTAssertNotNil(viewModelUnderTest.cameraPosition)
         XCTAssertEqual(viewModelUnderTest.cameraPosition!.target.latitude, 12, "Didn't setup camera position latitude correctly")
         XCTAssertEqual(viewModelUnderTest.cameraPosition!.target.longitude, 13, "Didn't setup camera position longitude correctly")
+    }
+    
+    func testRequestAuthorizationForLocationService() {
+        // Given
+        viewModelUnderTest.locationManager = CLLocationManager()
+        
+        // When
+        viewModelUnderTest.requestAuthorizationForLocationService()
+        
+        // Then
+        XCTAssertNotNil(viewModelUnderTest.locationServiceAuthorizationStatus)
+    }
+    
+    func testStartsUpdatingUserLocation_AlwaysAuthorization() {
+        // Given
+        let mockLocationManager = MockCLLocationManager()
+        MockCLLocationManager.stubbedAuthorizationStatus = .authorizedAlways
+        
+        viewModelUnderTest.locationManager = mockLocationManager
+        viewModelUnderTest.locationServiceAuthorizationStatus = MockCLLocationManager.stubbedAuthorizationStatus
+        
+        // When
+        viewModelUnderTest.startsUpdatingUserLocation()
+        
+        // Then
+        XCTAssert(mockLocationManager.calledStartUpdatingLocation)
+        XCTAssertEqual(mockLocationManager.startUpdatingLocationCallCount, 1)
+    }
+    
+    func testStartsUpdatingUserLocation_WhenInUseAuthorization() {
+        // Given
+        let mockLocationManager = MockCLLocationManager()
+        MockCLLocationManager.stubbedAuthorizationStatus = .authorizedWhenInUse
+        
+        viewModelUnderTest.locationManager = mockLocationManager
+        viewModelUnderTest.locationServiceAuthorizationStatus = MockCLLocationManager.stubbedAuthorizationStatus
+        
+        // When
+        viewModelUnderTest.startsUpdatingUserLocation()
+        
+        // Then
+        XCTAssert(mockLocationManager.calledStartUpdatingLocation)
+        XCTAssertEqual(mockLocationManager.startUpdatingLocationCallCount, 1)
     }
 }

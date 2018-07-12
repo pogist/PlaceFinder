@@ -14,6 +14,13 @@ import CoreLocation
  */
 protocol LocationManagerProtocol {
     
+    var delegate: CLLocationManagerDelegate? { get set }
+    var desiredAccuracy: CLLocationAccuracy { get set }
+    var distanceFilter: CLLocationDistance { get set }
+    
     static func authorizationStatus() -> CLAuthorizationStatus
+    
     func startUpdatingLocation()
+    func requestAlwaysAuthorization()
+    func stopUpdatingLocation()
 }

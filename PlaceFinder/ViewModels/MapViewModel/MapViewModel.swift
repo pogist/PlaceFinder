@@ -11,9 +11,12 @@ import CoreLocation
 import GoogleMaps
 
 final class MapViewModel: NSObject {
+    
+    weak var delegate: MapViewModelDelegate?
 
     var currentLocation: CLLocation?
     var zoomLevel: Float = 15.0
+    var locationServiceAuthorizationStatus: CLAuthorizationStatus?
     
     /**
      Map's target position based on user's current location.
@@ -31,15 +34,51 @@ final class MapViewModel: NSObject {
         }
     }
     
-    var locationManager: CLLocationManager? {
+    var locationManager: LocationManagerProtocol? {
         didSet {
-            guard let locationManager = locationManager else {
+            guard var locationManager = locationManager else {
                 return
             }
             
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.distanceFilter = 50
             locationManager.delegate = self
+        }
+    }
+    
+    /**
+     When using the app in production this method must be called before startsUpdatingUserLocation().
+     */
+    func requestAuthorizationForLocationService() {
+        guard let locationManager = self.locationManager else {
+            return
+        }
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestAlwaysAuthorization()
+        }
+        
+        self.locationServiceAuthorizationStatus = CLLocationManager.authorizationStatus()
+    }
+    
+    /**
+     Calls CLLocationManager.startUpdatingLocation() if the location service is enabled in the device.
+     */
+    func startsUpdatingUserLocation() {
+        guard
+            let locationManager = self.locationManager,
+            let locationServiceAuthorizationStatus = self.locationServiceAuthorizationStatus
+        else {
+            return
+        }
+        
+        switch locationServiceAuthorizationStatus {
+            
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        
+        default:
+            break
         }
     }
     

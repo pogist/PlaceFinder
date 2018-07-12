@@ -13,6 +13,10 @@
 		624D4E4D20F692D8002C7618 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E4C20F692D8002C7618 /* MapViewModel.swift */; };
 		624D4E5220F69B03002C7618 /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E5120F69B03002C7618 /* MapViewModelTests.swift */; };
 		624D4E5A20F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E5920F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift */; };
+		624D4E5E20F6E20F002C7618 /* MapViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E5D20F6E20F002C7618 /* MapViewModelDelegate.swift */; };
+		624D4E6120F6E96E002C7618 /* LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6020F6E96E002C7618 /* LocationManagerProtocol.swift */; };
+		624D4E6420F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6320F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift */; };
+		624D4E6A20F6EC92002C7618 /* MockCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6920F6EC92002C7618 /* MockCLLocationManager.swift */; };
 		62AB016F20F6811500FCFC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB016E20F6811500FCFC82 /* AppDelegate.swift */; };
 		62AB017420F6811500FCFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017220F6811500FCFC82 /* Main.storyboard */; };
 		62AB017620F6811600FCFC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017520F6811600FCFC82 /* Assets.xcassets */; };
@@ -51,6 +55,10 @@
 		624D4E4C20F692D8002C7618 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		624D4E5120F69B03002C7618 /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
 		624D4E5920F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewModel+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
+		624D4E5D20F6E20F002C7618 /* MapViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelDelegate.swift; sourceTree = "<group>"; };
+		624D4E6020F6E96E002C7618 /* LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerProtocol.swift; sourceTree = "<group>"; };
+		624D4E6320F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+LocationManagerProtocol.swift"; sourceTree = "<group>"; };
+		624D4E6920F6EC92002C7618 /* MockCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLLocationManager.swift; sourceTree = "<group>"; };
 		62AB016B20F6811500FCFC82 /* PlaceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AB016E20F6811500FCFC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62AB017320F6811500FCFC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +108,8 @@
 		624D4E4320F68961002C7618 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				624D4E6220F6E98C002C7618 /* Extensions */,
+				624D4E5F20F6E95B002C7618 /* Protocol */,
 				624D4E4420F68978002C7618 /* KeyProvider.swift */,
 				624D4E4620F68C7B002C7618 /* DefaultKeyProvider.swift */,
 			);
@@ -127,8 +137,33 @@
 			children = (
 				624D4E4C20F692D8002C7618 /* MapViewModel.swift */,
 				624D4E5920F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift */,
+				624D4E5D20F6E20F002C7618 /* MapViewModelDelegate.swift */,
 			);
 			path = MapViewModel;
+			sourceTree = "<group>";
+		};
+		624D4E5F20F6E95B002C7618 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				624D4E6020F6E96E002C7618 /* LocationManagerProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		624D4E6220F6E98C002C7618 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				624D4E6320F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		624D4E6820F6EC85002C7618 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				624D4E6920F6EC92002C7618 /* MockCLLocationManager.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		62AB016220F6811500FCFC82 = {
@@ -171,6 +206,7 @@
 		62AB018220F6811600FCFC82 /* PlaceFinderTests */ = {
 			isa = PBXGroup;
 			children = (
+				624D4E6820F6EC85002C7618 /* Mocks */,
 				62AB018520F6811600FCFC82 /* Info.plist */,
 				624D4E5120F69B03002C7618 /* MapViewModelTests.swift */,
 			);
@@ -422,10 +458,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				624D4E4520F68978002C7618 /* KeyProvider.swift in Sources */,
+				624D4E6420F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift in Sources */,
 				624D4E4D20F692D8002C7618 /* MapViewModel.swift in Sources */,
+				624D4E5E20F6E20F002C7618 /* MapViewModelDelegate.swift in Sources */,
 				62AB016F20F6811500FCFC82 /* AppDelegate.swift in Sources */,
 				624D4E4720F68C7B002C7618 /* DefaultKeyProvider.swift in Sources */,
 				624D4E5A20F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift in Sources */,
+				624D4E6120F6E96E002C7618 /* LocationManagerProtocol.swift in Sources */,
 				624D4E4A20F6923D002C7618 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				624D4E5220F69B03002C7618 /* MapViewModelTests.swift in Sources */,
+				624D4E6A20F6EC92002C7618 /* MockCLLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
