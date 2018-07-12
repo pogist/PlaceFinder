@@ -17,6 +17,7 @@
 		624D4E6120F6E96E002C7618 /* LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6020F6E96E002C7618 /* LocationManagerProtocol.swift */; };
 		624D4E6420F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6320F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift */; };
 		624D4E6A20F6EC92002C7618 /* MockCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6920F6EC92002C7618 /* MockCLLocationManager.swift */; };
+		624D4E6C20F71614002C7618 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6B20F71614002C7618 /* MapViewControllerTests.swift */; };
 		62AB016F20F6811500FCFC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB016E20F6811500FCFC82 /* AppDelegate.swift */; };
 		62AB017420F6811500FCFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017220F6811500FCFC82 /* Main.storyboard */; };
 		62AB017620F6811600FCFC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017520F6811600FCFC82 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		624D4E6020F6E96E002C7618 /* LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerProtocol.swift; sourceTree = "<group>"; };
 		624D4E6320F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+LocationManagerProtocol.swift"; sourceTree = "<group>"; };
 		624D4E6920F6EC92002C7618 /* MockCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLLocationManager.swift; sourceTree = "<group>"; };
+		624D4E6B20F71614002C7618 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		62AB016B20F6811500FCFC82 /* PlaceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AB016E20F6811500FCFC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62AB017320F6811500FCFC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				624D4E6820F6EC85002C7618 /* Mocks */,
 				62AB018520F6811600FCFC82 /* Info.plist */,
 				624D4E5120F69B03002C7618 /* MapViewModelTests.swift */,
+				624D4E6B20F71614002C7618 /* MapViewControllerTests.swift */,
 			);
 			path = PlaceFinderTests;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624D4E6C20F71614002C7618 /* MapViewControllerTests.swift in Sources */,
 				624D4E5220F69B03002C7618 /* MapViewModelTests.swift in Sources */,
 				624D4E6A20F6EC92002C7618 /* MockCLLocationManager.swift in Sources */,
 			);
