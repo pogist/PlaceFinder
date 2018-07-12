@@ -15,6 +15,9 @@ final class MapViewModel: NSObject {
     var currentLocation: CLLocation?
     var zoomLevel: Float = 15.0
     
+    /**
+     Map's target position based on user's current location.
+     */
     var cameraPosition: GMSCameraPosition? {
         get {
             guard let currentLocation = currentLocation else {
@@ -26,5 +29,27 @@ final class MapViewModel: NSObject {
             
             return GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoomLevel)
         }
+    }
+    
+    var locationManager: CLLocationManager? {
+        didSet {
+            guard let locationManager = locationManager else {
+                return
+            }
+            
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.distanceFilter = 50
+            locationManager.delegate = self
+        }
+    }
+    
+    override init() {
+        super.init()
+        self.locationManager = CLLocationManager()
+    }
+    
+    deinit {
+        locationManager?.stopUpdatingLocation()
+        locationManager = nil
     }
 }

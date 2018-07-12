@@ -47,4 +47,45 @@ class MapViewModelTests: XCTestCase {
         // Then
         XCTAssertNil(cameraPosition)
     }
+    
+    func testNonNilLocationManager() {
+        // Given
+        viewModelUnderTest.locationManager = CLLocationManager()
+        
+        // Then
+        XCTAssertNotNil(viewModelUnderTest.locationManager)
+        XCTAssertNotNil(viewModelUnderTest.locationManager?.delegate)
+        
+        XCTAssert(viewModelUnderTest.locationManager!.delegate!.isKind(of: MapViewModel.self))
+        
+        XCTAssertEqual(viewModelUnderTest.locationManager!.desiredAccuracy, kCLLocationAccuracyBest, "Didn't setup accuracy on didSet call")
+        XCTAssertEqual(viewModelUnderTest.locationManager!.distanceFilter, 50, "Didn't setup distance filter on didSet call")
+    }
+    
+    func testNilLocationManager() {
+        // Given
+        viewModelUnderTest.locationManager = nil
+        
+        //Then
+        XCTAssertNil(viewModelUnderTest.locationManager)
+        XCTAssertNil(viewModelUnderTest.currentLocation)
+        XCTAssertNil(viewModelUnderTest.cameraPosition)
+    }
+    
+    func testDelegateDidUpdateLocations() {
+        // Given
+        viewModelUnderTest.locationManager = CLLocationManager()
+        let locationManager = viewModelUnderTest.locationManager!
+        
+        let locations: [CLLocation] = [CLLocation(latitude: 10, longitude: 11), CLLocation(latitude: 12, longitude: 13)]
+        
+        // When
+        locationManager.delegate!.locationManager!(locationManager, didUpdateLocations: locations)
+        
+        // Then
+        XCTAssertNotNil(viewModelUnderTest.currentLocation)
+        XCTAssertNotNil(viewModelUnderTest.cameraPosition)
+        XCTAssertEqual(viewModelUnderTest.cameraPosition!.target.latitude, 12, "Didn't setup camera position latitude correctly")
+        XCTAssertEqual(viewModelUnderTest.cameraPosition!.target.longitude, 13, "Didn't setup camera position longitude correctly")
+    }
 }
