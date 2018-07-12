@@ -16,7 +16,6 @@ final class MapViewModel: NSObject {
 
     var currentLocation: CLLocation?
     var zoomLevel: Float = 15.0
-    var locationServiceAuthorizationStatus: CLAuthorizationStatus?
     
     /**
      Map's target position based on user's current location.
@@ -54,25 +53,20 @@ final class MapViewModel: NSObject {
             return
         }
         
-        if CLLocationManager.authorizationStatus() == .notDetermined {
+        if type(of: locationManager).authorizationStatus() == .notDetermined {
             locationManager.requestAlwaysAuthorization()
         }
-        
-        self.locationServiceAuthorizationStatus = CLLocationManager.authorizationStatus()
     }
     
     /**
      Calls CLLocationManager.startUpdatingLocation() if the location service is enabled in the device.
      */
     func startsUpdatingUserLocation() {
-        guard
-            let locationManager = self.locationManager,
-            let locationServiceAuthorizationStatus = self.locationServiceAuthorizationStatus
-        else {
+        guard let locationManager = self.locationManager else {
             return
         }
         
-        switch locationServiceAuthorizationStatus {
+        switch type(of: locationManager).authorizationStatus() {
             
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
@@ -80,11 +74,6 @@ final class MapViewModel: NSObject {
         default:
             break
         }
-    }
-    
-    override init() {
-        super.init()
-        self.locationManager = CLLocationManager()
     }
     
     deinit {

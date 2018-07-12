@@ -89,15 +89,34 @@ class MapViewModelTests: XCTestCase {
         XCTAssertEqual(viewModelUnderTest.cameraPosition!.target.longitude, 13, "Didn't setup camera position longitude correctly")
     }
     
-    func testRequestAuthorizationForLocationService() {
+    func testRequestAuthorizationForLocationService_NotDetermined() {
         // Given
-        viewModelUnderTest.locationManager = CLLocationManager()
+        let mockLocationManager = MockCLLocationManager()
+        MockCLLocationManager.stubbedAuthorizationStatus = .notDetermined
+        
+        viewModelUnderTest.locationManager = mockLocationManager
         
         // When
         viewModelUnderTest.requestAuthorizationForLocationService()
         
         // Then
-        XCTAssertNotNil(viewModelUnderTest.locationServiceAuthorizationStatus)
+        XCTAssert(mockLocationManager.calledRequestAlwaysAuthorization)
+        XCTAssertEqual(mockLocationManager.requestAlwaysAuthorizationCallCount, 1)
+    }
+    
+    func testRequestAuthorizationForLocationService_AlwaysAuthorized() {
+        // Given
+        let mockLocationManager = MockCLLocationManager()
+        MockCLLocationManager.stubbedAuthorizationStatus = .authorizedAlways
+        
+        viewModelUnderTest.locationManager = mockLocationManager
+        
+        // When
+        viewModelUnderTest.requestAuthorizationForLocationService()
+        
+        // Then
+        XCTAssertFalse(mockLocationManager.calledRequestAlwaysAuthorization)
+        XCTAssertEqual(mockLocationManager.requestAlwaysAuthorizationCallCount, 0)
     }
     
     func testStartsUpdatingUserLocation_AlwaysAuthorization() {
@@ -106,7 +125,6 @@ class MapViewModelTests: XCTestCase {
         MockCLLocationManager.stubbedAuthorizationStatus = .authorizedAlways
         
         viewModelUnderTest.locationManager = mockLocationManager
-        viewModelUnderTest.locationServiceAuthorizationStatus = MockCLLocationManager.stubbedAuthorizationStatus
         
         // When
         viewModelUnderTest.startsUpdatingUserLocation()
@@ -122,7 +140,6 @@ class MapViewModelTests: XCTestCase {
         MockCLLocationManager.stubbedAuthorizationStatus = .authorizedWhenInUse
         
         viewModelUnderTest.locationManager = mockLocationManager
-        viewModelUnderTest.locationServiceAuthorizationStatus = MockCLLocationManager.stubbedAuthorizationStatus
         
         // When
         viewModelUnderTest.startsUpdatingUserLocation()
@@ -130,5 +147,20 @@ class MapViewModelTests: XCTestCase {
         // Then
         XCTAssert(mockLocationManager.calledStartUpdatingLocation)
         XCTAssertEqual(mockLocationManager.startUpdatingLocationCallCount, 1)
+    }
+    
+    func testStartsUpdatingUserLocation_NotDetermined() {
+        // Given
+        let mockLocationManager = MockCLLocationManager()
+        MockCLLocationManager.stubbedAuthorizationStatus = .notDetermined
+        
+        viewModelUnderTest.locationManager = mockLocationManager
+        
+        // When
+        viewModelUnderTest.startsUpdatingUserLocation()
+        
+        // Then
+        XCTAssertFalse(mockLocationManager.calledStartUpdatingLocation)
+        XCTAssertEqual(mockLocationManager.startUpdatingLocationCallCount, 0)
     }
 }
