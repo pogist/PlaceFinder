@@ -7,7 +7,6 @@ target 'PlaceFinder' do
 
   # Pods for PlaceFinder
   pod 'GoogleMaps', '~> 2.7'
-  pod 'GooglePlaces', '~> 2.7'
 
   target 'PlaceFinderTests' do
     inherit! :search_paths

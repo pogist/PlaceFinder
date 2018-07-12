@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleMaps
-import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // This line should break. To fix it instantiate your own default key provider instead.
         // See also: KeyProvider
         let defaultKeyProvider = DefaultKeyProvider()
-        
         GMSServices.provideAPIKey(defaultKeyProvider.googleMapsAPIKey)
-        GMSPlacesClient.provideAPIKey(defaultKeyProvider.googleMapsAPIKey)
         
         return true
     }
