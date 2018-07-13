@@ -18,6 +18,9 @@
 		624D4E6420F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6320F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift */; };
 		624D4E6A20F6EC92002C7618 /* MockCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6920F6EC92002C7618 /* MockCLLocationManager.swift */; };
 		624D4E6C20F71614002C7618 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6B20F71614002C7618 /* MapViewControllerTests.swift */; };
+		624D4E6F20F803EE002C7618 /* PlacesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E6E20F803EE002C7618 /* PlacesAPI.swift */; };
+		624D4E7120F80B16002C7618 /* PlacesAPI+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E7020F80B16002C7618 /* PlacesAPI+SampleData.swift */; };
+		624D4E7620F8106D002C7618 /* PlacesAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624D4E7520F8106D002C7618 /* PlacesAPITests.swift */; };
 		62AB016F20F6811500FCFC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB016E20F6811500FCFC82 /* AppDelegate.swift */; };
 		62AB017420F6811500FCFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017220F6811500FCFC82 /* Main.storyboard */; };
 		62AB017620F6811600FCFC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017520F6811600FCFC82 /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 		624D4E6320F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+LocationManagerProtocol.swift"; sourceTree = "<group>"; };
 		624D4E6920F6EC92002C7618 /* MockCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCLLocationManager.swift; sourceTree = "<group>"; };
 		624D4E6B20F71614002C7618 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
+		624D4E6E20F803EE002C7618 /* PlacesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPI.swift; sourceTree = "<group>"; };
+		624D4E7020F80B16002C7618 /* PlacesAPI+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlacesAPI+SampleData.swift"; sourceTree = "<group>"; };
+		624D4E7520F8106D002C7618 /* PlacesAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPITests.swift; sourceTree = "<group>"; };
 		62AB016B20F6811500FCFC82 /* PlaceFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AB016E20F6811500FCFC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62AB017320F6811500FCFC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -168,6 +174,15 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		624D4E6D20F803BD002C7618 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				624D4E6E20F803EE002C7618 /* PlacesAPI.swift */,
+				624D4E7020F80B16002C7618 /* PlacesAPI+SampleData.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		62AB016220F6811500FCFC82 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +208,7 @@
 		62AB016D20F6811500FCFC82 /* PlaceFinder */ = {
 			isa = PBXGroup;
 			children = (
+				624D4E6D20F803BD002C7618 /* Network */,
 				624D4E4B20F692BC002C7618 /* ViewModels */,
 				624D4E4820F69227002C7618 /* Controllers */,
 				624D4E4320F68961002C7618 /* Base */,
@@ -212,6 +228,7 @@
 				62AB018520F6811600FCFC82 /* Info.plist */,
 				624D4E5120F69B03002C7618 /* MapViewModelTests.swift */,
 				624D4E6B20F71614002C7618 /* MapViewControllerTests.swift */,
+				624D4E7520F8106D002C7618 /* PlacesAPITests.swift */,
 			);
 			path = PlaceFinderTests;
 			sourceTree = "<group>";
@@ -484,11 +501,13 @@
 				624D4E4520F68978002C7618 /* KeyProvider.swift in Sources */,
 				624D4E6420F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift in Sources */,
 				624D4E4D20F692D8002C7618 /* MapViewModel.swift in Sources */,
+				624D4E7120F80B16002C7618 /* PlacesAPI+SampleData.swift in Sources */,
 				624D4E5E20F6E20F002C7618 /* MapViewModelDelegate.swift in Sources */,
 				62AB016F20F6811500FCFC82 /* AppDelegate.swift in Sources */,
 				624D4E4720F68C7B002C7618 /* DefaultKeyProvider.swift in Sources */,
 				624D4E5A20F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift in Sources */,
 				624D4E6120F6E96E002C7618 /* LocationManagerProtocol.swift in Sources */,
+				624D4E6F20F803EE002C7618 /* PlacesAPI.swift in Sources */,
 				624D4E4A20F6923D002C7618 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624D4E7620F8106D002C7618 /* PlacesAPITests.swift in Sources */,
 				624D4E6C20F71614002C7618 /* MapViewControllerTests.swift in Sources */,
 				624D4E5220F69B03002C7618 /* MapViewModelTests.swift in Sources */,
 				624D4E6A20F6EC92002C7618 /* MockCLLocationManager.swift in Sources */,
