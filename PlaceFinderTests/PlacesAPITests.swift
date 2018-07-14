@@ -89,11 +89,11 @@ class PlacesAPITests: XCTestCase {
                     let searchResult = try response.map(SearchResult.self)
                     parsingExpectation.fulfill()
                     
-                    if searchResult.status == "OK" {
+                    if let status = searchResult.status, status == "OK" {
                         successExpectation.fulfill()
                     }
                     
-                    if searchResult.places.count == 3 {
+                    if let places = searchResult.places, places.count == 3 {
                         placesCountExpectation.fulfill()
                     }
                     

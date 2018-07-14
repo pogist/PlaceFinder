@@ -10,21 +10,21 @@ import Foundation
 
 struct Place: Codable {
     
-    var id: String
-    var name: String
-    var placeId: String
-    var icon: String
-    var reference: String
-    var scope: String
-    var types: [String]
-    var vicinity: String
+    var id: String?
+    var name: String?
+    var placeId: String?
+    var icon: String?
+    var reference: String?
+    var scope: String?
+    var types: [String]?
+    var vicinity: String?
     
-    var geometry: Geometry
-    var plusCode: PlusCode
-    var openingHours: OpeningHours
-    var photos: [Photo]
+    var geometry: Geometry?
+    var plusCode: PlusCode?
+    var openingHours: OpeningHours?
+    var photos: [Photo]?
     
-    var rating: Double
+    var rating: Double?
     
     enum CodingKeys: String, CodingKey {
         case id

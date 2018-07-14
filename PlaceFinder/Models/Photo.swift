@@ -10,10 +10,10 @@ import Foundation
 
 struct Photo: Codable {
     
-    var height: Int
-    var width: Int
-    var reference: String
-    var htmlAttributions: [String]
+    var height: Int?
+    var width: Int?
+    var reference: String?
+    var htmlAttributions: [String]?
     
     enum CodingKeys: String, CodingKey {
         case height

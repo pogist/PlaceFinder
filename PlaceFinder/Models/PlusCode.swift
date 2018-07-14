@@ -10,8 +10,8 @@ import Foundation
 
 struct PlusCode: Codable {
     
-    var compound: String
-    var global: String
+    var compound: String?
+    var global: String?
     
     enum CodingKeys: String, CodingKey {
         case compound = "compound_code"

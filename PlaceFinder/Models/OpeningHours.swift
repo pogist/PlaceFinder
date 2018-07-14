@@ -10,7 +10,7 @@ import Foundation
 
 struct OpeningHours: Codable {
     
-    var openNow: Bool
+    var openNow: Bool?
     
     enum CodingKeys: String, CodingKey {
         case openNow = "open_now"

@@ -11,8 +11,8 @@ import Foundation
 struct Geometry: Codable {
     
     struct Location: Codable {
-        var latitude: Double
-        var longitude: Double
+        var latitude: Double?
+        var longitude: Double?
         
         enum CodingKeys: String, CodingKey {
             case latitude = "lat"
@@ -21,10 +21,10 @@ struct Geometry: Codable {
     }
     
     struct ViewPort: Codable {
-        var northeast: Location
-        var southwest: Location
+        var northeast: Location?
+        var southwest: Location?
     }
     
-    var location: Location
-    var viewport: ViewPort
+    var location: Location?
+    var viewport: ViewPort?
 }
