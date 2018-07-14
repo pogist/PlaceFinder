@@ -71,4 +71,42 @@ class PlacesAPITests: XCTestCase {
         // Then
         XCTAssertNotNil(sampleDataAsString)
     }
+    
+    func testResultParsing() {
+        // Given
+        let provider = MoyaProvider<PlacesAPI>(stubClosure: MoyaProvider.immediatelyStub)
+        
+        let successExpectation = expectation(description: "Response status should be OK")
+        let parsingExpectation = expectation(description: "Response's data parsing into SearchResult should be successful")
+        let placesCountExpectation = expectation(description: "The number of returned places should be equal to 3")
+        
+        // When
+        provider.request(targetUnderTest) { result in
+            switch result {
+                
+            case .success(let response):
+                do {
+                    let searchResult = try response.map(SearchResult.self)
+                    parsingExpectation.fulfill()
+                    
+                    if searchResult.status == "OK" {
+                        successExpectation.fulfill()
+                    }
+                    
+                    if searchResult.places.count == 3 {
+                        placesCountExpectation.fulfill()
+                    }
+                    
+                } catch let error as NSError {
+                    XCTFail(error.debugDescription)
+                }
+                
+            case .failure(let error as NSError):
+                XCTFail(error.debugDescription)
+            }
+        }
+        
+        // Then
+        wait(for: [successExpectation, parsingExpectation, placesCountExpectation], timeout: 2)
+    }
 }
