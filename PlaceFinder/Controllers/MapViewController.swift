@@ -13,6 +13,7 @@ import GoogleMaps
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
+    var searchController: UISearchController? = nil
     
     var mapViewModel: MapViewModel!
     
@@ -24,6 +25,8 @@ class MapViewController: UIViewController {
         
         mapViewModel.delegate = self
         mapViewModel.requestAuthorizationForLocationService()
+        
+        setupSearchController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +34,24 @@ class MapViewController: UIViewController {
         
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
+    }
+    
+    func setupSearchController() {
+        self.searchController = UISearchController(searchResultsController: nil)
+        
+        let searchBar = searchController!.searchBar
+        
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search a place kind. Ex: pharmacy"
+        searchBar.autocapitalizationType = .none
+        searchBar.autocorrectionType = .default
+        searchBar.delegate = self
+        
+        navigationItem.titleView = searchBar
+        
+        searchController?.hidesNavigationBarDuringPresentation = false
+        searchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
     }
 }
 
@@ -49,5 +70,18 @@ extension MapViewController: MapViewModelDelegate {
             completion: { [weak self] _ in
                 self?.mapView.camera = cameraPosition
             })
+    }
+}
+
+extension MapViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchTerm = searchBar.text else {
+            return
+        }
+        
+        // Uses search term....
+        
+        searchController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -17,7 +17,7 @@ class MapViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        controllerUnderTest = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()! as! MapViewController
+        controllerUnderTest = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
         _ = controllerUnderTest.view
     }
     
