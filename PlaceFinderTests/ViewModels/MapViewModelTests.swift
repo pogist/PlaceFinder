@@ -8,6 +8,7 @@
 
 import XCTest
 import CoreLocation
+import Moya
 @testable import PlaceFinder
 
 class MapViewModelTests: XCTestCase {
@@ -162,5 +163,34 @@ class MapViewModelTests: XCTestCase {
         // Then
         XCTAssertFalse(mockLocationManager.calledStartUpdatingLocation)
         XCTAssertEqual(mockLocationManager.startUpdatingLocationCallCount, 0)
+    }
+    
+    func testSearchNearbyPlaces() {
+        // Given
+        viewModelUnderTest.currentLocation = CLLocation(latitude: 10, longitude: 11)
+        viewModelUnderTest.apiProvider = MoyaProvider<PlacesAPI>(stubClosure: MoyaProvider.immediatelyStub)
+        
+        let viewModelDelegateSpy = MapViewModelDelegateSpy()
+        viewModelUnderTest.delegate = viewModelDelegateSpy
+        
+        let completionExpectation = expectation(description: "View model should call didLoadMarkers(_:)")
+        viewModelDelegateSpy.completionExpectation = completionExpectation
+        
+        // When
+        viewModelUnderTest.startsSearchingNearbyPlacesWith(keyword: "Testing keyword", quantity: 10)
+        
+        // Then
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("\(error)")
+            }
+            
+            guard let result = viewModelDelegateSpy.result else {
+                XCTFail("Expected delegate to be called")
+                return
+            }
+            
+            XCTAssertEqual(result.count, 3)
+        }
     }
 }

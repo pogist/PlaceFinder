@@ -11,4 +11,6 @@ import GoogleMaps
 
 protocol MapViewModelDelegate: class {
     func didUpdateCameraPosition(_ cameraPosition: GMSCameraPosition?)
+    func didLoadMarkers(_ markers: [GMSMarker])
+    func didFailToLoadMarkers(with error: Error)
 }

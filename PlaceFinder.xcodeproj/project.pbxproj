@@ -37,6 +37,7 @@
 		62AB017920F6811600FCFC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017720F6811600FCFC82 /* LaunchScreen.storyboard */; };
 		62AB018F20F6811600FCFC82 /* PlaceFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB018E20F6811600FCFC82 /* PlaceFinderUITests.swift */; };
 		62FC256E20FD920800450180 /* MoyaProvider+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC256D20FD920800450180 /* MoyaProvider+Promise.swift */; };
+		62FC257120FE2EAB00450180 /* MapViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC257020FE2EAB00450180 /* MapViewModelDelegateSpy.swift */; };
 		62FD4F6D20F970BB007A24F9 /* PlusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4F6C20F970BB007A24F9 /* PlusCode.swift */; };
 		62FD4F6F20F9720F007A24F9 /* OpeningHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4F6E20F9720F007A24F9 /* OpeningHours.swift */; };
 		BD5A7B507A3DAB7CEBB14C72 /* Pods_PlaceFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C478D1F474DDD99372AD0A9 /* Pods_PlaceFinderUITests.framework */; };
@@ -102,6 +103,7 @@
 		62AB018E20F6811600FCFC82 /* PlaceFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceFinderUITests.swift; sourceTree = "<group>"; };
 		62AB019020F6811600FCFC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62FC256D20FD920800450180 /* MoyaProvider+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Promise.swift"; sourceTree = "<group>"; };
+		62FC257020FE2EAB00450180 /* MapViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		62FD4F6C20F970BB007A24F9 /* PlusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCode.swift; sourceTree = "<group>"; };
 		62FD4F6E20F9720F007A24F9 /* OpeningHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningHours.swift; sourceTree = "<group>"; };
 		6E586855CE1517C49BCA9EF4 /* Pods-PlaceFinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaceFinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlaceFinderTests/Pods-PlaceFinderTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 		62AB018220F6811600FCFC82 /* PlaceFinderTests */ = {
 			isa = PBXGroup;
 			children = (
+				62FC256F20FE2E7E00450180 /* Spies */,
 				624BB0FF20FC24F500197690 /* Views */,
 				624BB0FE20FC24EA00197690 /* Controllers */,
 				624BB0FD20FC24DB00197690 /* Network */,
@@ -343,6 +346,14 @@
 				62FC256D20FD920800450180 /* MoyaProvider+Promise.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		62FC256F20FE2E7E00450180 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				62FC257020FE2EAB00450180 /* MapViewModelDelegateSpy.swift */,
+			);
+			path = Spies;
 			sourceTree = "<group>";
 		};
 		AB8CFBB63CB3C3F979793433 /* Pods */ = {
@@ -632,6 +643,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				624D4E7620F8106D002C7618 /* PlacesSearchAPITests.swift in Sources */,
+				62FC257120FE2EAB00450180 /* MapViewModelDelegateSpy.swift in Sources */,
 				624D4E6C20F71614002C7618 /* MapViewControllerTests.swift in Sources */,
 				624D4E5220F69B03002C7618 /* MapViewModelTests.swift in Sources */,
 				6241FA1B20FD6DBC00CC3968 /* PlacesPhotoAPITests.swift in Sources */,
