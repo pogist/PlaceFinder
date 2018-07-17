@@ -35,9 +35,12 @@
 		62AB017420F6811500FCFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017220F6811500FCFC82 /* Main.storyboard */; };
 		62AB017620F6811600FCFC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017520F6811600FCFC82 /* Assets.xcassets */; };
 		62AB017920F6811600FCFC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017720F6811600FCFC82 /* LaunchScreen.storyboard */; };
-		62AB018F20F6811600FCFC82 /* PlaceFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB018E20F6811600FCFC82 /* PlaceFinderUITests.swift */; };
 		62FC256E20FD920800450180 /* MoyaProvider+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC256D20FD920800450180 /* MoyaProvider+Promise.swift */; };
 		62FC257120FE2EAB00450180 /* MapViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC257020FE2EAB00450180 /* MapViewModelDelegateSpy.swift */; };
+		62FC257320FE367600450180 /* MapViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC257220FE367600450180 /* MapViewControllerUITests.swift */; };
+		62FC257520FE9D9500450180 /* MapViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC257420FE9D9500450180 /* MapViewModelType.swift */; };
+		62FC257720FE9F7900450180 /* MockMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC257620FE9F7900450180 /* MockMapViewModel.swift */; };
+		62FC257920FEA55900450180 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC257820FEA55900450180 /* UIAlertController+Error.swift */; };
 		62FD4F6D20F970BB007A24F9 /* PlusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4F6C20F970BB007A24F9 /* PlusCode.swift */; };
 		62FD4F6F20F9720F007A24F9 /* OpeningHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4F6E20F9720F007A24F9 /* OpeningHours.swift */; };
 		BD5A7B507A3DAB7CEBB14C72 /* Pods_PlaceFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C478D1F474DDD99372AD0A9 /* Pods_PlaceFinderUITests.framework */; };
@@ -100,10 +103,13 @@
 		62AB017F20F6811600FCFC82 /* PlaceFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaceFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AB018520F6811600FCFC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62AB018A20F6811600FCFC82 /* PlaceFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaceFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		62AB018E20F6811600FCFC82 /* PlaceFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceFinderUITests.swift; sourceTree = "<group>"; };
 		62AB019020F6811600FCFC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62FC256D20FD920800450180 /* MoyaProvider+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Promise.swift"; sourceTree = "<group>"; };
 		62FC257020FE2EAB00450180 /* MapViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		62FC257220FE367600450180 /* MapViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerUITests.swift; sourceTree = "<group>"; };
+		62FC257420FE9D9500450180 /* MapViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelType.swift; sourceTree = "<group>"; };
+		62FC257620FE9F7900450180 /* MockMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMapViewModel.swift; sourceTree = "<group>"; };
+		62FC257820FEA55900450180 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		62FD4F6C20F970BB007A24F9 /* PlusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCode.swift; sourceTree = "<group>"; };
 		62FD4F6E20F9720F007A24F9 /* OpeningHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningHours.swift; sourceTree = "<group>"; };
 		6E586855CE1517C49BCA9EF4 /* Pods-PlaceFinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaceFinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlaceFinderTests/Pods-PlaceFinderTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 				624D4E4C20F692D8002C7618 /* MapViewModel.swift */,
 				624D4E5920F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift */,
 				624D4E5D20F6E20F002C7618 /* MapViewModelDelegate.swift */,
+				62FC257420FE9D9500450180 /* MapViewModelType.swift */,
 			);
 			path = MapViewModel;
 			sourceTree = "<group>";
@@ -242,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				624D4E6320F6E9A1002C7618 /* CLLocationManager+LocationManagerProtocol.swift */,
+				62FC257820FEA55900450180 /* UIAlertController+Error.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				624D4E6920F6EC92002C7618 /* MockCLLocationManager.swift */,
+				62FC257620FE9F7900450180 /* MockMapViewModel.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -334,8 +343,8 @@
 		62AB018D20F6811600FCFC82 /* PlaceFinderUITests */ = {
 			isa = PBXGroup;
 			children = (
-				62AB018E20F6811600FCFC82 /* PlaceFinderUITests.swift */,
 				62AB019020F6811600FCFC82 /* Info.plist */,
+				62FC257220FE367600450180 /* MapViewControllerUITests.swift */,
 			);
 			path = PlaceFinderUITests;
 			sourceTree = "<group>";
@@ -626,9 +635,11 @@
 				624D4E7F20F84609002C7618 /* SearchResult.swift in Sources */,
 				624BB0F620FC033700197690 /* PlaceDetailsView.swift in Sources */,
 				62FD4F6D20F970BB007A24F9 /* PlusCode.swift in Sources */,
+				62FC257920FEA55900450180 /* UIAlertController+Error.swift in Sources */,
 				624D4E5E20F6E20F002C7618 /* MapViewModelDelegate.swift in Sources */,
 				62AB016F20F6811500FCFC82 /* AppDelegate.swift in Sources */,
 				624D4E4720F68C7B002C7618 /* DefaultKeyProvider.swift in Sources */,
+				62FC257520FE9D9500450180 /* MapViewModelType.swift in Sources */,
 				624D4E5A20F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift in Sources */,
 				624D4E6120F6E96E002C7618 /* LocationManagerProtocol.swift in Sources */,
 				62FC256E20FD920800450180 /* MoyaProvider+Promise.swift in Sources */,
@@ -643,6 +654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				624D4E7620F8106D002C7618 /* PlacesSearchAPITests.swift in Sources */,
+				62FC257720FE9F7900450180 /* MockMapViewModel.swift in Sources */,
 				62FC257120FE2EAB00450180 /* MapViewModelDelegateSpy.swift in Sources */,
 				624D4E6C20F71614002C7618 /* MapViewControllerTests.swift in Sources */,
 				624D4E5220F69B03002C7618 /* MapViewModelTests.swift in Sources */,
@@ -657,7 +669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62AB018F20F6811600FCFC82 /* PlaceFinderUITests.swift in Sources */,
+				62FC257320FE367600450180 /* MapViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
