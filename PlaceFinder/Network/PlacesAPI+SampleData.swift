@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  Adds an example of a real json response to PlacesAPI for testing purposes.
@@ -25,6 +26,10 @@ extension PlacesAPI {
 """
             
             return sampleDataString.data(using: .utf8)!
+            
+        case .photo(_, _):
+            let testingImage = UIImage(named: "pharmacy-testing-image")!
+            return UIImageJPEGRepresentation(testingImage, 1.0)!
         }
     }
 }

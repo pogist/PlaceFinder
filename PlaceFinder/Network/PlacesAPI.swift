@@ -12,6 +12,7 @@ import CoreLocation
 
 enum PlacesAPI {
     case searchNearestPlacesBy(keyword: String, location: CLLocationCoordinate2D)
+    case photo(reference: String, size: CGSize)
 }
 
 extension PlacesAPI: TargetType {
@@ -25,27 +26,42 @@ extension PlacesAPI: TargetType {
             
         case .searchNearestPlacesBy(_, _):
             return "nearbysearch/json"
+            
+        case .photo(_, _):
+            return "photo"
         }
     }
     
     var method: Moya.Method {
         switch self {
         
-        case .searchNearestPlacesBy(_, _):
+        case .searchNearestPlacesBy(_, _), .photo(_, _):
             return .get
         }
     }
     
     var task: Task {
-        switch self {
+        let apiKey = DefaultKeyProvider().googleMapsAPIKey
         
+        switch self {
+            
         case .searchNearestPlacesBy(let keyword, let location):
             let parameters = [
-                "key": DefaultKeyProvider().googleMapsAPIKey,
+                "key": apiKey,
                 "location": "\(location.latitude),\(location.longitude)",
                 "keyword": keyword,
                 "language": "pt-BR",
                 "rankby": "distance"
+            ]
+            
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+            
+        case .photo(let reference, let size):
+            let parameters: [String: Any] = [
+                "key" : apiKey,
+                "photoreference": reference,
+                "maxwidth": size.width,
+                "maxheight": size.height
             ]
             
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
