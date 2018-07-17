@@ -36,6 +36,7 @@
 		62AB017620F6811600FCFC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017520F6811600FCFC82 /* Assets.xcassets */; };
 		62AB017920F6811600FCFC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62AB017720F6811600FCFC82 /* LaunchScreen.storyboard */; };
 		62AB018F20F6811600FCFC82 /* PlaceFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB018E20F6811600FCFC82 /* PlaceFinderUITests.swift */; };
+		62FC256E20FD920800450180 /* MoyaProvider+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FC256D20FD920800450180 /* MoyaProvider+Promise.swift */; };
 		62FD4F6D20F970BB007A24F9 /* PlusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4F6C20F970BB007A24F9 /* PlusCode.swift */; };
 		62FD4F6F20F9720F007A24F9 /* OpeningHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD4F6E20F9720F007A24F9 /* OpeningHours.swift */; };
 		BD5A7B507A3DAB7CEBB14C72 /* Pods_PlaceFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C478D1F474DDD99372AD0A9 /* Pods_PlaceFinderUITests.framework */; };
@@ -100,6 +101,7 @@
 		62AB018A20F6811600FCFC82 /* PlaceFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaceFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AB018E20F6811600FCFC82 /* PlaceFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceFinderUITests.swift; sourceTree = "<group>"; };
 		62AB019020F6811600FCFC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62FC256D20FD920800450180 /* MoyaProvider+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Promise.swift"; sourceTree = "<group>"; };
 		62FD4F6C20F970BB007A24F9 /* PlusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCode.swift; sourceTree = "<group>"; };
 		62FD4F6E20F9720F007A24F9 /* OpeningHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningHours.swift; sourceTree = "<group>"; };
 		6E586855CE1517C49BCA9EF4 /* Pods-PlaceFinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaceFinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlaceFinderTests/Pods-PlaceFinderTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		624D4E6D20F803BD002C7618 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				62FC256C20FD91F200450180 /* Extensions */,
 				624D4E6E20F803EE002C7618 /* PlacesAPI.swift */,
 				624D4E7020F80B16002C7618 /* PlacesAPI+SampleData.swift */,
 			);
@@ -332,6 +335,14 @@
 				62AB019020F6811600FCFC82 /* Info.plist */,
 			);
 			path = PlaceFinderUITests;
+			sourceTree = "<group>";
+		};
+		62FC256C20FD91F200450180 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				62FC256D20FD920800450180 /* MoyaProvider+Promise.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AB8CFBB63CB3C3F979793433 /* Pods */ = {
@@ -499,12 +510,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PlaceFinder/Pods-PlaceFinder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +620,7 @@
 				624D4E4720F68C7B002C7618 /* DefaultKeyProvider.swift in Sources */,
 				624D4E5A20F6CD49002C7618 /* MapViewModel+CLLocationManagerDelegate.swift in Sources */,
 				624D4E6120F6E96E002C7618 /* LocationManagerProtocol.swift in Sources */,
+				62FC256E20FD920800450180 /* MoyaProvider+Promise.swift in Sources */,
 				624BB0F920FC097F00197690 /* PlaceViewModel.swift in Sources */,
 				624D4E6F20F803EE002C7618 /* PlacesAPI.swift in Sources */,
 				624D4E4A20F6923D002C7618 /* MapViewController.swift in Sources */,
