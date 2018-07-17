@@ -13,9 +13,10 @@ import GoogleMaps
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
-    var searchController: UISearchController? = nil
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var mapViewModel: MapViewModel!
+    var searchController: UISearchController? = nil
+    var mapViewModel: MapViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,26 @@ class MapViewController: UIViewController {
     }
 }
 
+extension MapViewController: GMSMapViewDelegate {
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        
+        if let detailsView = Bundle.main.loadNibNamed("PlaceDetailsView", owner: nil, options: nil)?.first as? PlaceDetailsView,
+            let placeViewModel = marker.userData as? PlaceViewModel {
+            
+            detailsView.placeName.text = placeViewModel.placeName
+            detailsView.placeAddress.text = placeViewModel.placeAddress
+            
+            detailsView.placeImage.contentMode = .scaleAspectFill
+            detailsView.placeImage.image = placeViewModel.photo ?? #imageLiteral(resourceName: "no-picture")
+            
+            return detailsView
+        } else {
+            return nil
+        }
+    }
+}
+
 extension MapViewController: MapViewModelDelegate {
     
     func didUpdateCameraPosition(_ cameraPosition: GMSCameraPosition?) {
@@ -71,17 +92,29 @@ extension MapViewController: MapViewModelDelegate {
                 self?.mapView.camera = cameraPosition
             })
     }
+    
+    func didLoadMarkers(_ markers: [GMSMarker]) {
+        searchController?.dismiss(animated: true, completion: nil)
+        activityIndicator.stopAnimating()
+        
+        mapView.clear()
+        
+        markers.forEach { marker in
+            marker.appearAnimation = .pop
+            marker.map = mapView
+        }
+    }
+    
+    func didFailToLoadMarkers(with error: Error) {
+        let errorAlert = UIAlertController(for: error)
+        self.present(errorAlert, animated: true, completion: nil)
+    }
 }
 
 extension MapViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text else {
-            return
-        }
-        
-        // Uses search term....
-        
-        searchController?.dismiss(animated: true, completion: nil)
+        activityIndicator.startAnimating()
+        mapViewModel.startsSearchingNearbyPlacesWith(keyword: searchBar.text ?? "", quantity: 10)
     }
 }
