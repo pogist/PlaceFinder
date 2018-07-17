@@ -8,4 +8,4 @@
 
 import CoreLocation
 
-extension CLLocationManager: LocationManagerProtocol {}
+extension CLLocationManager: LocationManagerType {}

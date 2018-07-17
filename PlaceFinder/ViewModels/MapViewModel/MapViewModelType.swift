@@ -15,7 +15,7 @@ import GoogleMaps
 protocol MapViewModelType {
     
     var delegate: MapViewModelDelegate? { get set }
-    var locationManager: LocationManagerProtocol? { get set }
+    var locationManager: LocationManagerType? { get set }
     
     func requestAuthorizationForLocationService()
     func startsSearchingNearbyPlacesWith(keyword: String, quantity: Int)

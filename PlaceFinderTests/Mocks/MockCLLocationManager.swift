@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 @testable import PlaceFinder
 
-class MockCLLocationManager: LocationManagerProtocol {
+class MockCLLocationManager: LocationManagerType {
     
     var delegate: CLLocationManagerDelegate?
     

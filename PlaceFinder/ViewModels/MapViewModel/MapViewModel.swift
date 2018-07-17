@@ -41,7 +41,7 @@ final class MapViewModel: NSObject, MapViewModelType {
         }
     }
     
-    var locationManager: LocationManagerProtocol? {
+    var locationManager: LocationManagerType? {
         didSet {
             guard var locationManager = locationManager else {
                 return
