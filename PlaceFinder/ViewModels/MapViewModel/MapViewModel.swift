@@ -12,7 +12,7 @@ import Moya
 import GoogleMaps
 import PromiseKit
 
-final class MapViewModel: NSObject {
+final class MapViewModel: NSObject, MapViewModelType {
     
     weak var delegate: MapViewModelDelegate?
     var apiProvider: MoyaProvider<PlacesAPI>!
