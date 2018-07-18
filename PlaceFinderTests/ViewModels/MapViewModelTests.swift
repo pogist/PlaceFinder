@@ -59,8 +59,8 @@ class MapViewModelTests: XCTestCase {
         
         XCTAssert(viewModelUnderTest.locationManager!.delegate!.isKind(of: MapViewModel.self))
         
-        XCTAssertEqual(viewModelUnderTest.locationManager!.desiredAccuracy, kCLLocationAccuracyBest, "Didn't setup accuracy on didSet call")
-        XCTAssertEqual(viewModelUnderTest.locationManager!.distanceFilter, 50, "Didn't setup distance filter on didSet call")
+        XCTAssertEqual(viewModelUnderTest.locationManager!.desiredAccuracy, viewModelUnderTest.accuracy, "Didn't setup accuracy on didSet call")
+        XCTAssertEqual(viewModelUnderTest.locationManager!.distanceFilter, viewModelUnderTest.distanceFilter, "Didn't setup distance filter on didSet call")
     }
     
     func testNilLocationManager() {

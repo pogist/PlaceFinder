@@ -20,6 +20,9 @@ final class MapViewModel: NSObject, MapViewModelType {
     var currentLocation: CLLocation?
     var zoomLevel: Float = 14.0
     
+    var accuracy: CLLocationAccuracy = kCLLocationAccuracyBest
+    var distanceFilter: CLLocationDistance = 0
+    
     override init() {
         super.init()
         self.apiProvider = MoyaProvider<PlacesAPI>()
@@ -47,8 +50,8 @@ final class MapViewModel: NSObject, MapViewModelType {
                 return
             }
             
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.distanceFilter = 50
+            locationManager.desiredAccuracy = accuracy
+            locationManager.distanceFilter = distanceFilter
             locationManager.delegate = self
         }
     }

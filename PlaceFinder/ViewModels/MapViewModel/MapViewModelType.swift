@@ -16,6 +16,7 @@ protocol MapViewModelType {
     
     var delegate: MapViewModelDelegate? { get set }
     var locationManager: LocationManagerType? { get set }
+    var zoomLevel: Float { get set }
     
     func requestAuthorizationForLocationService()
     func startsSearchingNearbyPlacesWith(keyword: String, quantity: Int)

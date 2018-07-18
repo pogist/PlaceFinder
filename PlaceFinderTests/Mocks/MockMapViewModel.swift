@@ -13,7 +13,9 @@ import GoogleMaps
 class MockMapViewModel: MapViewModelType {
     
     weak var delegate: MapViewModelDelegate?
+    
     var locationManager: LocationManagerType?
+    var zoomLevel: Float = 0
     
     var calledStartsSearchingNearbyPlacesWith: Bool = false
     var startsSearchingNearbyPlacesWithCallCount: Int = 0

@@ -75,6 +75,10 @@ extension MapViewController: GMSMapViewDelegate {
             return nil
         }
     }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        self.mapViewModel.zoomLevel = position.zoom
+    }
 }
 
 extension MapViewController: MapViewModelDelegate {
