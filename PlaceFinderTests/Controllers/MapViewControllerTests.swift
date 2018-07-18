@@ -31,6 +31,25 @@ class MapViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
+    func testPostInitializationSettings() {
+        // Right after initialization, map view controller must:
+        
+        // Have a non-nil map view model
+        XCTAssertNotNil(controllerUnderTest.mapViewModel)
+        
+        // And its delegate cannot be nil
+        XCTAssertNotNil(controllerUnderTest.mapViewModel.delegate)
+        
+        // Nor its location manager
+        XCTAssertNotNil(controllerUnderTest.mapViewModel.locationManager)
+        
+        // Have a search controller
+        XCTAssertNotNil(controllerUnderTest.searchController)
+        
+        // Have its mapView delegate setup
+        XCTAssertNotNil(controllerUnderTest.mapView.delegate)
+    }
+    
     func testDidUpdateWithNilCameraPosition() {
         // Given
         let cameraBeforeTheUpdate = controllerUnderTest.mapView.camera
