@@ -21,7 +21,7 @@ final class MapViewModel: NSObject, MapViewModelType {
     var zoomLevel: Float = 14.0
     
     var accuracy: CLLocationAccuracy = kCLLocationAccuracyBest
-    var distanceFilter: CLLocationDistance = 0
+    var distanceFilter: CLLocationDistance = 30
     
     override init() {
         super.init()
