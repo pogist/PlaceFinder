@@ -8,7 +8,7 @@
 <br>
 
 <p align="center">
-    Find the nearest places get what you want.
+    🗺️ Type once. Get what you want. The nearest ones. That's it. 🗺️
 <br>
 <br>
 
