@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  PlaceFinder
+
+  Created by Murilo da Paixão on 17/07/2018.
+  Copyright © 2018 Murilo da Paixão. All rights reserved.
+*/
+
+/* Placeholder for search bar on map view controller */
+"SearchBarPlaceholder" = "Busque por um tipo de lugar. Ex: farmácia";
+
+/* Locale to use on places searches */
+"MapsLocale" = "pt-BR";
+
+/* Title for error alert */
+"ErrorAlertTitle" = "Ocorreu um erro";

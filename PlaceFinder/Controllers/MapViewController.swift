@@ -43,7 +43,7 @@ class MapViewController: UIViewController {
         let searchBar = searchController!.searchBar
         
         searchBar.sizeToFit()
-        searchBar.placeholder = "Search a place kind. Ex: pharmacy"
+        searchBar.placeholder = NSLocalizedString("SearchBarPlaceholder", comment: "Placeholder for search bar on map view controller")
         searchBar.autocapitalizationType = .none
         searchBar.autocorrectionType = .default
         searchBar.delegate = self

@@ -46,11 +46,13 @@ extension PlacesAPI: TargetType {
         switch self {
             
         case .searchNearestPlacesBy(let keyword, let location):
+            let locale = NSLocalizedString("MapsLocale", comment: "Locale to use on places searches")
+            
             let parameters = [
                 "key": apiKey,
                 "location": "\(location.latitude),\(location.longitude)",
                 "keyword": keyword,
-                "language": "pt-BR",
+                "language": locale,
                 "rankby": "distance"
             ]
             
