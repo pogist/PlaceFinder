@@ -28,6 +28,7 @@ class MapViewController: UIViewController {
         mapViewModel.requestAuthorizationForLocationService()
         
         setupSearchController()
+        mapView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
