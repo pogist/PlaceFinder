@@ -27,10 +27,10 @@ class MapViewControllerUITests: XCTestCase {
     func testPlaceSearch() {
         app.launch()
         
-        let searchBar = app.navigationBars["PlaceFinder.MapView"].searchFields["Search a place kind. Ex: pharmacy"]
+        let searchBar = app.navigationBars["PlaceFinder.MapView"].searchFields["Search for a type of place. Eg: drugstore"]
         
         searchBar.tap()
-        searchBar.typeText("farmácia")
+        searchBar.typeText("drugstore")
         
         app.buttons["Search"].tap()
         
