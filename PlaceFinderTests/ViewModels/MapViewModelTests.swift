@@ -177,7 +177,7 @@ class MapViewModelTests: XCTestCase {
         viewModelDelegateSpy.completionExpectation = completionExpectation
         
         // When
-        viewModelUnderTest.startsSearchingNearbyPlacesWith(keyword: "Testing keyword", quantity: 10)
+        viewModelUnderTest.startsSearchingNearbyPlacesWith(keyword: "Testing keyword", quantity: 3)
         
         // Then
         waitForExpectations(timeout: 5) { error in

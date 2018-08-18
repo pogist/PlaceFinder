@@ -104,7 +104,7 @@ final class MapViewModel: NSObject, MapViewModelType {
                 return try response.map(SearchResult.self)
             }
             .map { searchResult -> [PlaceViewModel] in
-                return searchResult.places?.prefix(quantity).map { PlaceViewModel(model: $0) } ?? []
+                return searchResult.places?.prefix(quantity).map { PlaceViewModel(model: $0, photo: nil, provider: self.apiProvider) } ?? []
             }
             .then { places -> Promise<[PlaceViewModel]> in
                 return when(fulfilled: places.map { $0.loadPhoto() })

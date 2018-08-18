@@ -18,10 +18,14 @@ struct PlaceViewModel {
     
     var apiProvider: MoyaProvider<PlacesAPI>!
     
-    init(model: Place, photo: UIImage? = nil) {
+    init(model: Place, photo: UIImage? = nil, provider: MoyaProvider<PlacesAPI>) {
         self.place = model
         self.photo = photo
-        self.apiProvider = MoyaProvider<PlacesAPI>()
+        self.apiProvider = provider
+    }
+    
+    init(model: Place, photo: UIImage? = nil) {
+        self.init(model: model, photo: photo, provider: MoyaProvider<PlacesAPI>())
     }
     
     var placeName: String? {
